@@ -25,8 +25,8 @@
 
 	<modules>
 		<module>spring-boot-elastic-search</module>
-		<!--<module>spring-boot-grpc-server</module>
-		<module>spring-boot-grpc-client</module> -->
+		<module>spring-boot-mongo-db</module>
+		<!--<module>spring-boot-grpc-client</module> -->
 	</modules>
 
 </project>
