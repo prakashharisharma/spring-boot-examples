@@ -33,11 +33,11 @@
 
         <!-- Runtime, for Embedded Elasticsearch,
             comment this if connect to external elastic search server-->
-        <!--<dependency>
+        <dependency>
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna</artifactId>
             <scope>runtime</scope>
-        </dependency>-->
+        </dependency>
 
     </dependencies>
 

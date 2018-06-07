@@ -13,11 +13,13 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 import java.net.InetAddress;
 
+import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
+
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.tutorialsdesk.repository")
 public class ElasticSearchConfig {
-
-    @Value("${elasticsearch.host}")
+    // Uncomment below to config elastic serach physical host
+   /* @Value("${elasticsearch.host}")
     private String EsHost;
 
     @Value("${elasticsearch.port}")
@@ -38,16 +40,16 @@ public class ElasticSearchConfig {
                 .settings(esSettings)
                 .build()
                 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(EsHost), EsPort));
-    }
+    }*/
 
-    @Bean
+   /* @Bean
     public ElasticsearchOperations elasticsearchTemplate() throws Exception {
         return new ElasticsearchTemplate(client());
-    }
+    }*/
 
     //Embedded Elasticsearch Server
-    /*@Bean
+    @Bean
     public ElasticsearchOperations elasticsearchTemplate() {
         return new ElasticsearchTemplate(nodeBuilder().local(true).node().client());
-    }*/
+    }
 }
