@@ -26,7 +26,7 @@
 	<modules>
 		<module>spring-boot-elastic-search</module>
 		<module>spring-boot-mongo-db</module>
-		<!--<module>spring-boot-grpc-client</module> -->
+		<module>spring-boot-activemq</module>
 	</modules>
 
 </project>
