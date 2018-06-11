@@ -27,6 +27,8 @@
 		<module>spring-boot-elastic-search</module>
 		<module>spring-boot-mongo-db</module>
 		<module>spring-boot-activemq</module>
+		<module>spring-boot-session-hazelcast</module>
+		<module>spring-boot-cache-hazelcast</module>
 	</modules>
 
 </project>
