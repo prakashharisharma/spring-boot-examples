@@ -6,9 +6,9 @@
 		<title>Spring Boot MVC Example</title>
 	</head>
 	<body>
-		Spring Boot MVC Example
+		Spring Boot Session Hazelcast Example
 
 		<br/>
-		<a href="/welcome">Go to Welcome Page</a>
+		
 	</body>
 </html>
