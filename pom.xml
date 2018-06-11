@@ -29,6 +29,7 @@
 		<module>spring-boot-activemq</module>
 		<module>spring-boot-session-hazelcast</module>
 		<module>spring-boot-cache-hazelcast</module>
+		<module>spring-boot-security</module>
 	</modules>
 
 </project>
