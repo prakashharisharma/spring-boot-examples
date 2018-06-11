@@ -19,6 +19,8 @@ mvnw.cmd
 bin
 target
 build/
+data
+
 
 # IntelliJ IDEA Files #
 
@@ -42,6 +44,8 @@ dependency-reduced-pom.xml
 out
 README.html
 
+# sonarlint Files #
+.sonarlint
 
 /.metadata/
 /.recommenders/
