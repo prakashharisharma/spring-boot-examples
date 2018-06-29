@@ -1,0 +1,7 @@
+#Start consul by following command
+
+consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui
+
+#Verify Consul
+
+http://localhost:8500/ui/

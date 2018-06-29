@@ -30,7 +30,7 @@
 		<module>spring-boot-session-hazelcast</module>
 		<module>spring-boot-cache-hazelcast</module>
 		<module>spring-boot-security</module>
-		<!--<module>spring-boot-grpc-example</module> -->
+		<module>spring-boot-microservices</module>
 	</modules>
 
 </project>
