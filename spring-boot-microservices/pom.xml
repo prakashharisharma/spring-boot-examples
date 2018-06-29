@@ -24,8 +24,13 @@
   <modules>
 		<module>spring-boot-service-discovery-eureka</module>
 		<module>spring-boot-service-discovery-eureka-client</module>
+		<module>spring-boot-service-discovery-eureka-client-2</module>
 		<module>spring-boot-service-discovery-consul-client</module>
 		<module>spring-boot-service-discovery-consul-client-2</module>
+		<module>spring-boot-service-circuit-breaker-hystrix</module>
+		<module>spring-boot-service-tracing-zipkin-server</module>
+		<module>spring-boot-service-tracing-zipkin-sleuth</module>
+		<module>spring-boot-service-rest-client-feign</module>
 	</modules>
   
 </project>

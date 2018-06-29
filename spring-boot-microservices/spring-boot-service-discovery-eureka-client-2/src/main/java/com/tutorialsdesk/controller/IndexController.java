@@ -15,12 +15,12 @@ public class IndexController {
 	
 	@GetMapping("/")
 	public String echoTheUsersEmailAddress() {
-	   return "Hey there from consul client service 2";
+	   return "Hey there from eureka client service 2";
 	}
 	
 	@GetMapping("/call-service-1/")
 	public String callOtherServiceUsingConsulDiscovery() {
-		String response = restTemplate.getForObject("http://service-1/", String.class);
+		String response = restTemplate.getForObject("http://SERVICE-1/", String.class);
 		
 		System.out.println(response);
 		

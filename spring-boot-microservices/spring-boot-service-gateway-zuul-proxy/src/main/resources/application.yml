@@ -1,0 +1,44 @@
+
+#To Use Eureka as a discovery server uncommet below and eureka-starter dependecy in pom.xml
+#eureka:
+#  client:
+#    register-with-eureka: false
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+
+#To Use Eureka as a discovery server comment out below consul starter dependeny in pom.xml
+management:
+  security:
+    enabled: false
+  health:
+    consul:
+      enabled: false
+#        
+server:
+  port: '8080'
+  
+spring:
+  application:
+    name: Gateway-Service
+  main:
+    banner-mode: 'OFF'
+    
+zuul:
+  prefix: /api
+  routes:
+    external:
+      path: /redirect/**
+      url: http://google.com
+    service-1-by-url:
+      path: /service-1-by-url/**
+      url: http://localhost:8081/
+    service-1-by-service-id:
+      path: /service-1-by-service-id/**
+      serviceId: SERVICE-1
+    service-2-by-url:
+      path: /service-2-by-url/**
+      url: http://localhost:8082/
+    service-2-by-service-id:
+      path: /service-2-by-service-id/**
+      serviceId: SERVICE-2
