@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.tutorialsdesk</groupId>
-  <artifactId>spring-boot-security</artifactId>
+  <artifactId>spring-boot-security-oauth2-jwt</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>spring-boot-security</name>
-  <description>spring-boot-security</description>
+  <name>spring-boot-security-oauth2-jwt</name>
+  <description>spring-boot-security-oauth2-jwt</description>
   
     <parent>
     <groupId>org.springframework.boot</groupId>
@@ -22,14 +22,10 @@
 	</properties>
   
   <modules>
-		<module>spring-boot-security-basic</module>
-		<module>spring-boot-security-digest</module>
-		<module>spring-boot-security-jdbc</module>
-		<module>spring-boot-security-jpa</module>
-		<module>spring-boot-security-oauth2</module>
-		<module>spring-boot-security-oauth2-jwt</module>
-		<module>spring-boot-security-sso-okta</module>
-		
+		<module>oauth2-auth-server-jwt</module>
+		<module>oauth2-resource-server-jwt</module>
+		<module>oauth2-client-jwt</module>
+		<module>oauth2-sso-jwt</module>
 	</modules>
   
 </project>
