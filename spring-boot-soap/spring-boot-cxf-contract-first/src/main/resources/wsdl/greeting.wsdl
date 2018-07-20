@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ns1="http://service.tutorialsdesk.com/" name="GreetingService"
+	targetNamespace="http://service.tutorialsdesk.com/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://service.tutorialsdesk.com/"
+			elementFormDefault="unqualified"
+			targetNamespace="http://service.tutorialsdesk.com/" version="1.0">
+			<xs:element name="Greeting" type="tns:greeting" />
+			<xs:element name="sayBye" type="tns:sayBye" />
+			<xs:element name="sayByeResponse"
+				type="tns:sayByeResponse" />
+			<xs:element name="sayHello" type="tns:sayHello" />
+			<xs:element name="sayHelloResponse"
+				type="tns:sayHelloResponse" />
+			<xs:complexType name="sayBye">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="GreetingsRequest"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="sayByeResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Greeting"
+						type="tns:greeting" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="greeting">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="message"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="date" type="xs:dateTime" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="sayHello">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="GreetingsRequest"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="sayHelloResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Greeting"
+						type="tns:greeting" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="sayBye">
+		<wsdl:part element="ns1:sayBye" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="sayHelloResponse">
+		<wsdl:part element="ns1:sayHelloResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="sayByeResponse">
+		<wsdl:part element="ns1:sayByeResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="sayHello">
+		<wsdl:part element="ns1:sayHello" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="GreetingService">
+		<wsdl:operation name="sayBye">
+			<wsdl:input message="ns1:sayBye" name="sayBye">
+			</wsdl:input>
+			<wsdl:output message="ns1:sayByeResponse"
+				name="sayByeResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="sayHello">
+			<wsdl:input message="ns1:sayHello" name="sayHello">
+			</wsdl:input>
+			<wsdl:output message="ns1:sayHelloResponse"
+				name="sayHelloResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.tutorialsdesk</groupId>
+  <artifactId>spring-boot-cxf</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>spring-boot-cxf</name>
+  <description>spring-boot-cxf</description>
+  
+    <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.13.RELEASE</version>
+  </parent>
+  
+  
+  	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+  
+  <modules>
+		<module>spring-boot-cxf-simple</module>		
+		<module>spring-boot-cxf-exception</module>
+		<module>spring-boot-cxf-cors</module>
+		<module>spring-boot-cxf-swagger</module>
+	</modules>
+  
+</project>

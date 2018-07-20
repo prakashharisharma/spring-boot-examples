@@ -1,6 +1,6 @@
 server:
     port: 8080
-    context-path: /ui1
+    context-path: /ui
 
 
 security:
