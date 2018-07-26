@@ -28,9 +28,8 @@ public class FileRoute extends RouteBuilder{
                 .to("file:target/messages/others")
                 .to("log:Others Message");
 		
-		from("direct:start")
-		.setHeader(Exchange.HTTP_METHOD,constant(HttpMethods.POST))
-		  .to("http4://www.google.com");
+		from("jetty:http://localhost:8080/redirect/myservice")
+		.to("http4://www.google.com?bridgeEndpoint=true&throwExceptionOnFailure=false");
 		
 	}
 }
