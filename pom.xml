@@ -27,8 +27,8 @@
 		<module>spring-boot-activemq</module>
 		<module>spring-boot-cache-hazelcast</module>
 		<module>spring-boot-elastic-search</module>
+		<module>spring-boot-java-mail</module>
 		<module>spring-boot-mongo-db</module>
-		<module>spring-boot-mvc</module>
 		<module>spring-boot-rest</module>
 		<module>spring-boot-session-hazelcast</module>
 		<module>spring-boot-soap</module>
