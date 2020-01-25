@@ -1,23 +1,20 @@
 package com.tutorialsdesk.config;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.common.transport.TransportAddress;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
-import java.net.InetAddress;
 
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
-@Profile("dev")
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.tutorialsdesk.repository")
 public class ElasticSearchConfig {
@@ -31,23 +28,21 @@ public class ElasticSearchConfig {
     @Value("${elasticsearch.clustername}")
     private String EsClusterName;
 
-    @Bean
-    public Client client() throws Exception {
 
-        Settings esSettings = Settings.settingsBuilder()
-                .put("cluster.name", EsClusterName)
-                .build();
+@Bean
+public Client client() throws UnknownHostException {
+    Settings elasticsearchSettings = Settings.builder()
+      .put("client.transport.sniff", true)
+      //.put("path.home", elasticsearchHome)
+      .put("cluster.name", EsClusterName).build();
+    TransportClient client = new PreBuiltTransportClient(elasticsearchSettings);
+    client.addTransportAddress(new TransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
+    return client;
+}
 
-        //https://www.elastic.co/guide/en/elasticsearch/guide/current/_transport_client_versus_node_client.html
-        return TransportClient.builder()
-                .settings(esSettings)
-                .build()
-                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(EsHost), EsPort));
-    }
-
-    @Bean
-    public ElasticsearchOperations elasticsearchTemplate() throws Exception {
-        return new ElasticsearchTemplate(client());
-    }
-
+/*@Bean
+public ElasticsearchOperations elasticsearchTemplate() throws UnknownHostException {
+    return new ElasticsearchTemplate(client());
+}
+*/
 }

@@ -1,7 +1,10 @@
 package com.tutorialsdesk;
 
 import com.tutorialsdesk.model.Book;
+import com.tutorialsdesk.model.Student;
 import com.tutorialsdesk.service.BookService;
+import com.tutorialsdesk.service.StudentService;
+
 import org.elasticsearch.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,15 +24,20 @@ public class AppRunner implements CommandLineRunner {
     @Autowired
     BookService bookService;
 
+    @Autowired
+    StudentService studentService;
+    
     @Override
     public void run(String... strings) throws Exception {
 
-        printElasticSearchInfo();
+       // printElasticSearchInfo();
 
         bookService.save(new Book("2001", "Elasticsearch Basics", "Rambabu Posa", "23-FEB-2017"));
         bookService.save(new Book("2002", "Apache Lucene Basics", "Rambabu Posa", "13-MAR-2017"));
         bookService.save(new Book("2003", "Apache Solr Basics", "Rambabu Posa", "21-MAR-2017"));
 
+        studentService.save(new Student("1","ABC","XYZ"));
+        
         //fuzzey search
         Page<Book> books = bookService.findByAuthor("Rambabu", new PageRequest(0, 10));
 
@@ -39,15 +47,15 @@ public class AppRunner implements CommandLineRunner {
     }
 
     //useful for debug
-    private void printElasticSearchInfo() {
+   /* private void printElasticSearchInfo() {
 
         System.out.println("--ElasticSearch-->");
         Client client = es.getClient();
-        Map<String, String> asMap = client.settings().getAsMap();
+        Map<String, String> asMap = client.settings().getAsGroups();
 
         asMap.forEach((k, v) -> {
             System.out.println(k + " = " + v);
         });
         System.out.println("<--ElasticSearch--");
-    }
+    }*/
 }

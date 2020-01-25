@@ -12,6 +12,8 @@ import java.util.List;
 @Service
 public class BookServiceImpl implements BookService {
 
+	
+	@Autowired
     private BookRepository bookRepository;
 
     @Autowired
@@ -25,10 +27,6 @@ public class BookServiceImpl implements BookService {
 
     public void delete(Book book) {
         bookRepository.delete(book);
-    }
-
-    public Book findOne(String id) {
-        return bookRepository.findOne(id);
     }
 
     public Iterable<Book> findAll() {
